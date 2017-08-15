@@ -79,3 +79,10 @@ nelmio_cors:
         max_age:        3600
     paths:
         '^/': ~
+
+fos_oauth_server:
+    db_driver: orm       # Drivers available: orm, mongodb, or propel
+    client_class:        AppBundle\Entity\Client
+    access_token_class:  AppBundle\Entity\AccessToken
+    refresh_token_class: AppBundle\Entity\RefreshToken
+    auth_code_class:     AppBundle\Entity\AuthCode

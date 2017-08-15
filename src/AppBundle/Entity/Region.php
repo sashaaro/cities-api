@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -18,6 +19,8 @@ class Region
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     *
+     * @Groups({"region_view"})
      */
     private $id;
 
@@ -26,6 +29,8 @@ class Region
      *
      * @ORM\Column(type="string")
      * @Assert\NotBlank
+     *
+     * @Groups({"region_view"})
      */
     private $name;
 
@@ -34,6 +39,8 @@ class Region
      *
      * @ORM\ManyToOne(targetEntity="Country")
      * @Assert\NotBlank
+     *
+     * @Groups({"region_view"})
      */
     private $country;
 
@@ -72,5 +79,10 @@ class Region
     public function setCountry($country)
     {
         $this->country = $country;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

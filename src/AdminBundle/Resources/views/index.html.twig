@@ -1,0 +1,30 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Город</th>
+            <th>Рерион</th>
+            <th>Страна</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for city in cities %}
+        <tr>
+            <th scope="row"><a href="{{ path('admin_cities_edit', {id: city.id}) }}">{{ city.id }}</a></th>
+            <td>{{ city.name }}</td>
+            <td>{{ city.region.name }}</td>
+            <td>{{ city.region.country.name }}</td>
+        </tr>
+        {% endfor %}
+        {% if cities|length == 0 %}
+        <tr>
+            <td colspan="4" style="text-align: center">Пусто</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock content %}
+

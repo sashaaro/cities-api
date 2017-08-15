@@ -4,10 +4,13 @@ namespace AppBundle\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource
+ * @ApiResource(attributes={
+ *      "normalization_context"={"groups"={"city_view", "region_view", "country_view"}},
+ * })
  * @ORM\Entity
  */
 class City
@@ -18,6 +21,8 @@ class City
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     *
+     * @Groups({"city_view"})
      */
     private $id;
 
@@ -26,6 +31,8 @@ class City
      *
      * @ORM\Column(type="string")
      * @Assert\NotBlank
+     *
+     * @Groups({"city_view"})
      */
     private $name;
 
@@ -34,6 +41,8 @@ class City
      *
      * @ORM\ManyToOne(targetEntity="Region")
      * @Assert\NotBlank
+     *
+     * @Groups({"city_view"})
      */
     private $region;
 

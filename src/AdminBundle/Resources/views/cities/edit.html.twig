@@ -1,0 +1,9 @@
+{% extends '@Admin/layout.html.twig' %}
+
+{% block content %}
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-success" type="submit">Редактировать город #{{ city.id }}</button>
+    {{ form_end(form) }}
+{% endblock content %}

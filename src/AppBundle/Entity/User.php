@@ -2,13 +2,15 @@
 
 namespace AppBundle\Entity;
 
-use FOS\OAuthServerBundle\Entity\Client as BaseClient;
+
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="fos_user")
  */
-class Client extends BaseClient
+class User extends BaseUser
 {
     /**
      * @ORM\Id

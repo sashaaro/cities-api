@@ -80,9 +80,19 @@ nelmio_cors:
     paths:
         '^/': ~
 
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: api
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
+
 fos_oauth_server:
     db_driver: orm       # Drivers available: orm, mongodb, or propel
     client_class:        AppBundle\Entity\Client
     access_token_class:  AppBundle\Entity\AccessToken
     refresh_token_class: AppBundle\Entity\RefreshToken
     auth_code_class:     AppBundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_provider.username

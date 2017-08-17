@@ -10,19 +10,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource(attributes={
  *      "normalization_context"={"groups"={"city_view", "region_view", "country_view"}},
+ *      "denormalization_context"={"groups"={"write"}}
  * })
  * @ORM\Entity
  */
 class City
 {
     /**
-     * @var int The entity Id
+     * @var int
      *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      *
-     * @Groups({"city_view"})
+     * @Groups({"city_view", "write"})
      */
     private $id;
 
@@ -32,7 +33,7 @@ class City
      * @ORM\Column(type="string")
      * @Assert\NotBlank
      *
-     * @Groups({"city_view"})
+     * @Groups({"city_view", "write"})
      */
     private $name;
 
@@ -42,7 +43,7 @@ class City
      * @ORM\ManyToOne(targetEntity="Region")
      * @Assert\NotBlank
      *
-     * @Groups({"city_view"})
+     * @Groups({"city_view", "write"})
      */
     private $region;
 

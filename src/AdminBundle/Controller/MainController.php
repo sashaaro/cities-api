@@ -21,7 +21,7 @@ class MainController extends Controller
     public function actionIndex(Request $request)
     {
         /** @var City[] $cities */
-        $cities = $this->getDoctrine()->getRepository(City::class)->findBy([], ['id' => 'ASC']);
+        $cities = $this->getDoctrine()->getRepository(City::class)->findBy([], ['id' => 'DESC']);
         return $this->render('@Admin/index.html.twig', [
             'cities' => $cities
         ]);

@@ -8,13 +8,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class InitCommand
+ * Class CreateOauth2ClientCommand
  */
-class InitCommand extends ContainerAwareCommand
+class CreateOauth2ClientCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
-        $this->setName('app:init');
+        $this->setName('app:oauth2:create-client');
     }
 
 

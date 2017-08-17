@@ -14,7 +14,8 @@ Make sure request returns 401
 
 Add oauth client
 ~~~
-    bin/console app:init
+    bin/console app:oauth2:create-client
+    bin/console app:fixtures:load
 ~~~
 
 Example

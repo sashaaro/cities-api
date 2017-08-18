@@ -7,15 +7,15 @@ bin/console doctrine:schema:update --force
 bin/console fos:user:create
 ~~~
 
-Make sure request returns 401
-~~~
-curl -I -X GET --header 'Accept: application/json' 'http://localhost/app_dev.php/api/countries'
-~~~
-
 Add oauth client
 ~~~
 bin/console app:oauth2:create-client
 bin/console app:fixtures:load
+~~~
+
+Make sure request returns 401
+~~~
+curl -I -X GET --header 'Accept: application/json' 'http://localhost/app_dev.php/api/countries'
 ~~~
 
 Get token

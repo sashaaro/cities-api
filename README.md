@@ -1,6 +1,8 @@
 The Cities API
 ==========================
 
+Based on Symfony 3 and Api-platform bundle
+
 Setup
 ~~~
 bin/console doctrine:schema:update --force
@@ -48,4 +50,4 @@ Add `ROLE_ADMIN` for user
 bin/console fos:user:promote
 ~~~
 
-Open browser `http://localhost/app_dev.php/admin`
+Open browser `http://localhost/app_dev.php/admin` and login into admin dashboard

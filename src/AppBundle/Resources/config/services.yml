@@ -1,0 +1,4 @@
+services:
+    app.action.check_location:
+        class: AppBundle\Action\CheckLocationAction
+        arguments: [ '@validator' ]

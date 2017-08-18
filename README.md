@@ -39,3 +39,9 @@ bin/console fos:user:promote
 ~~~
 
 Open browser `http://localhost/app_dev.php/admin`
+
+
+Check location
+~~~
+http://localhost/app_dev.php/api/check_location?lat=37.356805&lng=-121.998269&address=1600%20Amphitheatre%20Parkway,%20Mountain+View,%20CA&radius=6
+~~~

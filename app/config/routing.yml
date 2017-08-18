@@ -11,6 +11,7 @@ admin:
 app:
     resource: '@AppBundle/Action/'
     type:     'annotation'
+    prefix: 'api'
 
 # app/config/routing.yml
 fos_oauth_server_token:

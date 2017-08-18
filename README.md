@@ -24,13 +24,19 @@ curl -X POST --data 'grant_type=password&username=alex&password=alex&client_id=2
 curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer ZDQyNzVjNDU1N2ZiYmNmMDM5ZDU0N2NiN2UwNTZhMzFmNzI5NDljZDU3MWM4MzI4ODdjN2YyMjYyODU2ZWU1OQ' 'http://localhost/app_dev.php/api/countries'
 ~~~
 
-Put
+Create city
 ~~~
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"name": "Люберцы", "region": "/api/regions/1" }' 'http://localhost/app_dev.php/api/cities'
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer ZDQyNzVjNDU1N2ZiYmNmMDM5ZDU0N2NiN2UwNTZhMzFmNzI5NDljZDU3MWM4MzI4ODdjN2YyMjYyODU2ZWU1OQ' -d '{"name": "Люберцы", "region": "/api/regions/1" }' 'http://localhost/app_dev.php/api/cities'
 ~~~
-Post
+
+Update city
 ~~~
-curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "Балашиха"}' 'http://localhost/app_dev.php/api/cities/7'
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "Балашиха"}' --header 'Authorization: Bearer ZDQyNzVjNDU1N2ZiYmNmMDM5ZDU0N2NiN2UwNTZhMzFmNzI5NDljZDU3MWM4MzI4ODdjN2YyMjYyODU2ZWU1OQ' 'http://localhost/app_dev.php/api/cities/7'
+~~~
+
+Check location
+~~~
+curl -X GET --header 'Accept: application/json' http://localhost/app_dev.php/api/check_location?lat=37.356805&lng=-121.998269&address=1600%20Amphitheatre%20Parkway,%20Mountain+View,%20CA&radius=6
 ~~~
 
 Add `ROLE_ADMIN` for user
@@ -39,9 +45,3 @@ bin/console fos:user:promote
 ~~~
 
 Open browser `http://localhost/app_dev.php/admin`
-
-
-Check location
-~~~
-http://localhost/app_dev.php/api/check_location?lat=37.356805&lng=-121.998269&address=1600%20Amphitheatre%20Parkway,%20Mountain+View,%20CA&radius=6
-~~~
